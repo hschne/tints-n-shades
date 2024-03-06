@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     tints-n-shades (0.1.0)
+      thor (~> 1.3)
 
 GEM
   remote: https://rubygems.org/
@@ -51,7 +52,6 @@ DEPENDENCIES
   rubocop (~> 1.21)
   rubocop-minitest (~> 0.34.5)
   rubocop-rake (~> 0.6.0)
-  thor (~> 1.3)
   tints-n-shades!
 
 BUNDLED WITH
