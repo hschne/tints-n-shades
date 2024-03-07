@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   # guide at: https://bundler.io/guides/creating_gem.html
   spec.metadata["rubygems_mfa_required"] = "true"
 
-  spec.add_runtime_dependency("thor", "~> 1.3")
+  spec.add_dependency("thor", "~> 1.3")
 end

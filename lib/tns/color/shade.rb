@@ -4,6 +4,7 @@ require "forwardable"
 
 module TNS
   module Color
+    # A shade of a color
     class Shade < Variant
       def index
         5 + step

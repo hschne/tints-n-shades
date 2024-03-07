@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
+# rubocop:disable Metrics/MethodLength
 module TNS
   class PaletteTest < Minitest::Test
     def test_tints_should_return_tints
@@ -37,5 +40,12 @@ module TNS
 
       assert_equal(expected, result)
     end
+
+    def test_to_a_should_return_array_of_tints_and_shades
+      result = Palette.new(Color::RGB.new(255, 125, 0)).to_a
+
+      assert_equal(19, result.size)
+    end
   end
 end
+# rubocop:enable Metrics/MethodLength

@@ -12,17 +12,17 @@ module TNS
 
       # Return a new instance of RGB that is tinted by step
       def tint(step)
-        red = @red + ((255 - @red) * step * 0.1)
-        green = @green + ((255 - @green) * step * 0.1)
-        blue = @blue + ((255 - @blue) * step * 0.1)
+        red = @red + ((255 - @red) * step * 0.2)
+        green = @green + ((255 - @green) * step * 0.2)
+        blue = @blue + ((255 - @blue) * step * 0.2)
         Tint.new(RGB.new(red, green, blue), step)
       end
 
       # Return a new instance of RGB that is shaded by step
       def shade(step)
-        red = @red * (1 - (0.1 * step))
-        green = @green * (1 - (0.1 * step))
-        blue = @blue * (1 - (0.1 * step))
+        red = @red * (1 - (0.2 * step))
+        green = @green * (1 - (0.2 * step))
+        blue = @blue * (1 - (0.2 * step))
         Shade.new(RGB.new(red, green, blue), step)
       end
 
