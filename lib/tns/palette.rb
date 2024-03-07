@@ -21,6 +21,17 @@ module TNS
       end
     end
 
+    def to(format)
+      case format
+      when :hex
+        map(&:to_hex)
+      when :hsl
+        map(&:to_hsl)
+      else
+        palette
+      end
+    end
+
     def each(&)
       palette.each(&)
     end

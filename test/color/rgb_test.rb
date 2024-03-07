@@ -29,7 +29,9 @@ module TNS
       end
 
       def test_from_hex_with_invalid_should_raise
-        assert_raises(RGB.from_hex(""))
+        assert_raises(ArgumentError) do
+          RGB.from_hex("")
+        end
       end
 
       def test_to_hex_should_return_hex

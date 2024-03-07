@@ -35,14 +35,21 @@ module TNS
     def g
       palettes = Input.named_colors(colors).map do |(color, name)|
         rgb = Color::RGB.from_hex(color)
-        palette = Palette.new(rgb).map { |variant| Output::CSSVariable.new(variant, name).to_s }
+        color_format = options["color-format"].to_sym
+        palette = Palette.new(rgb).to(color_format)
 
-        "// #{name.upcase}\n#{palette.join("\n")}"
+        "// #{name.upcase}\n#{format_palette(palette).join("\n")}"
       end
       puts palettes.join("\n\n")
     rescue ArgumentError => e
       # Wrap argument errors into thor errors for nicer reporting to user
       raise Thor::Error, e.message
+    end
+
+    def format_palette(palette)
+      palette.map { |variant| Output::CSSVariable.new(variant, name) }
+             .map(&:to_s)
+             .map { |string| "#{string};" }
     end
 
     def self.exit_on_failure?

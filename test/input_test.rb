@@ -6,7 +6,7 @@ module TNS
   class InputTest < Minitest::Test
     def test_named_colors_should_return_named_colors
       input = ["color:name"]
-      expected = { "color" => "color-name" }
+      expected = { "color" => "name" }
 
       assert_equal(expected, Input.named_colors(input))
     end
