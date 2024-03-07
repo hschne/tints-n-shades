@@ -3,6 +3,8 @@
 module TNS
   # Represents a palette based on a color
   class Palette
+    include Enumerable
+
     def initialize(color)
       @color = color
     end
@@ -19,7 +21,13 @@ module TNS
       end
     end
 
-    def to_a
+    def each(&)
+      palette.each(&)
+    end
+
+    private
+
+    def palette
       tints + [Color::Tint.new(@color, 0)] + shades
     end
   end

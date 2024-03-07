@@ -6,6 +6,9 @@ AllCops:
   TargetRubyVersion: 3.2
   NewCops: enable
 
+Metrics/MethodLength:
+  Max: 15
+
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes

@@ -3,11 +3,24 @@
 module TNS
   module Color
     # RGB is our base representation for color objects.
-    class RGB
+    class RGB < Base
       attr_reader :red, :green, :blue
 
       def initialize(red = 0, green = 0, blue = 0)
         @red, @green, @blue = [red, green, blue].map { |color| normalize(color) }
+        super()
+      end
+
+      def self.from_hex(color, &)
+        hex = color.scan(/[0-9a-f]/i)
+        case hex.size
+        when 3
+          new(*hex.map { |v| (v * 2).to_i(16) }, &)
+        when 6
+          new(*hex.each_slice(2).map { |v| v.join.to_i(16) }, &)
+        else
+          raise ArgumentError, "#{color} is not a valid color"
+        end
       end
 
       # Return a new instance of RGB that is tinted by step
@@ -26,21 +39,12 @@ module TNS
         Shade.new(RGB.new(red, green, blue), step)
       end
 
-      def self.from_hex(color, &)
-        # When we can move to 1.9+ only, this will be \h
-        hex = color.scan(/[0-9a-f]/i)
-        case hex.size
-        when 3
-          new(*hex.map { |v| (v * 2).to_i(16) }, &)
-        when 6
-          new(*hex.each_slice(2).map { |v| v.join.to_i(16) }, &)
-        else
-          raise ArgumentError, "Invalid hex color"
-        end
-      end
-
       def to_hex
         Hex.new(self)
+      end
+
+      def to_hsl
+        HSL.new(self)
       end
 
       def to_css
@@ -51,17 +55,19 @@ module TNS
         format("%<red>d %<green>d %<blue>d", red: @red, green: @green, blue: @blue)
       end
 
-      # Set color value between allowed range.
-      def normalize(value)
-        value.round.clamp(0, 255)
-      end
-
       def ==(other)
         other.class == self.class && other.state == state
       end
 
       def state
         instance_variables.map { |variable| instance_variable_get variable }
+      end
+
+      private
+
+      # Set color value between allowed range.
+      def normalize(value)
+        value.round.clamp(0, 255)
       end
     end
   end
