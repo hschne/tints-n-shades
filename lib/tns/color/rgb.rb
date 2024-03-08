@@ -19,7 +19,7 @@ module TNS
         when 6
           new(*hex.each_slice(2).map { |v| v.join.to_i(16) }, &)
         else
-          raise ArgumentError, "#{color} is not a valid color"
+          raise ArgumentError, "Invalid color #{color}. Please provide a color in hex format."
         end
       end
 

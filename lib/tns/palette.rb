@@ -23,12 +23,14 @@ module TNS
 
     def to(format)
       case format
-      when :hex
+      when "hex"
         map(&:to_hex)
-      when :hsl
+      when "hsl"
         map(&:to_hsl)
-      else
+      when "rgb"
         palette
+      else
+        raise ArgumentError, "Invalid color format #{format}. Specify hex, hsl or rgb."
       end
     end
 

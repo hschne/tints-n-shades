@@ -7,16 +7,18 @@ require_relative "../tns"
 module TNS
   # CLI to generate stuff
   class CLI < Thor
-    desc "g <color>", "Generate tints and shades from a given color"
+    desc "generate <color>", "Generate tints and shades from a given color"
     long_desc <<-LONGDESC
       LONG DESCRIPTION GOES HERE
     LONGDESC
 
-    argument :colors, optional: false, type: :array, description: "Colors in hex format",
-                      banner: "color[:name] color[:name]"
-    option :format, default: ["css"],
-                    enum: %w[css scss raw],
-                    type: :array,
+    option :name, default: "primary",
+                  type: :string,
+                  aliases: "-n",
+                  desc: "The name of your color"
+    option :format, default: "css",
+                    enum: %w[css sass json],
+                    type: :string,
                     aliases: "-f",
                     desc: "The output format"
     option "color-format", default: "hex",
@@ -32,25 +34,20 @@ module TNS
                    type: :numeric,
                    aliases: "-i",
                    desc: "Which index to give your base color"
-    def g
-      palettes = Input.named_colors(colors).map do |(color, name)|
-        rgb = Color::RGB.from_hex(color)
-        color_format = options["color-format"].to_sym
-        palette = Palette.new(rgb).to(color_format)
-
-        "// #{name.upcase}\n#{format_palette(palette).join("\n")}"
-      end
-      puts palettes.join("\n\n")
+    def generate(color)
+      rgb = Color::RGB.from_hex(color)
+      name = options["name"]
+      format = options["format"]
+      color_format = options["color-format"]
+      palette = Palette.new(rgb).to(color_format)
+      text = Output::Text.new(name, format)
+      puts text.format(palette)
     rescue ArgumentError => e
       # Wrap argument errors into thor errors for nicer reporting to user
       raise Thor::Error, e.message
     end
 
-    def format_palette(palette)
-      palette.map { |variant| Output::CSSVariable.new(variant, name) }
-             .map(&:to_s)
-             .map { |string| "#{string};" }
-    end
+    map "g" => :generate
 
     def self.exit_on_failure?
       true
