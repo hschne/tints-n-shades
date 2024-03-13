@@ -12,11 +12,11 @@ module TNS
 
       def format(palette)
         colors = palette.map { |variant| format_variant(variant) }
-        JSON.pretty_generate({ "#{@name}" => colors.reduce({}, :merge) })
+        JSON.pretty_generate({ @name.to_s => colors.reduce({}, :merge) })
       end
 
       def format_variant(variant)
-        { "#{variant.index * 100}" => variant.to_css.to_s }
+        { (variant.index * 100).to_s => variant.to_css.to_s }
       end
     end
   end

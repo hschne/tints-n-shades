@@ -5,24 +5,37 @@ require "test_helper"
 module TNS
   module Output
     class OutputTest < Minitest::Test
-      def test_css_variable_returns_color_as_css_variable
-        color = Color::Tint.new(Color::RGB.new(255, 125, 0), 0)
+      def test_css_returns_sass_output
+        output = Output.from_argument("css", "primary")
 
-        assert_equal("--primary-500=rgb(255 125 0)", CSSVariable.new(color, "primary").to_s)
+        palette = [Color::Tint.new(Color::RGB.new(255, 125, 0), 0)]
+        result = output.format(palette)
+
+        expected = "--primary-500: rgb(255 125 0);"
+
+        assert_equal(expected, result)
       end
 
-      def test_sass_variable_returns_color_as_sass_variable
-        color = Color::Tint.new(Color::RGB.new(255, 125, 0), 0)
+      def test_sass_returns_sass_output
+        output = Output.from_argument("sass", "primary")
 
-        assert_equal("$primary-500=rgb(255 125 0)", SASSVariable.new(color, "primary").to_s)
+        palette = [Color::Tint.new(Color::RGB.new(255, 125, 0), 0)]
+        result = output.format(palette)
+
+        expected = "$primary-500: rgb(255 125 0);"
+
+        assert_equal(expected, result)
       end
 
-      def test_text_format_returns_palette_formatted
-        color = Color::Tint.new(Color::RGB.new(255, 125, 0), 0)
+      def test_tailwind_returns_tailwind_output
+        output = Output.from_argument("tailwind", "primary")
 
-        result = Text.new("primary", "css").format([color])
+        palette = [Color::Tint.new(Color::RGB.new(255, 125, 0), 0)]
+        result = output.format(palette)
 
-        assert_equal("--primary-500=rgb(255 125 0);", result)
+        expected = JSON.pretty_generate({ "primary" => { "500" => "rgb(255 125 0)" } })
+
+        assert_equal(expected, result)
       end
     end
   end

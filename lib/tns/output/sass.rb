@@ -16,7 +16,7 @@ module TNS
       end
 
       def format_variant(variant)
-        "$#{@name}-#{variant.index * 100}=#{variant.to_css}"
+        "$#{@name}-#{variant.index * 100}: #{variant.to_css}"
       end
     end
   end
