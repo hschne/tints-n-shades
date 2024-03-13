@@ -1,6 +1,11 @@
+<div align="center">
+
 # Tints 'N Shades
 
-The tints & shades generator for CLI lovers ⌨️💻
+<img alt="logo" src="assets/logo.webp" width="300px" height="auto">
+
+### The tints & shades generator for CLI lovers ❤️
+</div>
 
 ## Usage
 
