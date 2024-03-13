@@ -19,7 +19,7 @@ module TNS
     option :format, default: "css",
                     enum: %w[css sass json],
                     type: :string,
-                    aliases: "-f",
+                    aliases: "-o",
                     desc: "The output format"
     option "color-format", default: "hex",
                            enum: %w[hex hsl rgb],
