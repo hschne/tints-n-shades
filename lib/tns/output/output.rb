@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module TNS
+  # Contains various output options.
   module Output
     def from_argument(arg, name)
       case arg
