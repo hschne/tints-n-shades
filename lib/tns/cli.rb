@@ -8,8 +8,13 @@ module TNS
   # CLI to generate stuff
   class CLI < Thor
     desc "generate <color>", "Generate tints and shades from a given color"
-    long_desc <<-LONGDESC
-      LONG DESCRIPTION GOES HERE
+    long_desc <<~LONGDESC
+      Tints 'N Shades (tns) is a tints and shades generator for command line
+      lovers. Generate palettes in CSS/SASS/Tailwind based on a Hex color.
+
+        tns g #ff7d00
+        --primary-100: #ffe5cc;
+        --primary-200: #ffcb99;
     LONGDESC
 
     option :name, default: "primary",
@@ -26,14 +31,6 @@ module TNS
                            type: :string,
                            aliases: "-c",
                            desc: "The color format to use. "
-    option :size, default: 10,
-                  type: :numeric,
-                  aliases: "-s",
-                  desc: "The total number of colors to include in your palette."
-    option :index, default: 5,
-                   type: :numeric,
-                   aliases: "-i",
-                   desc: "Which index to give your base color"
     def generate(color)
       rgb = Color::RGB.from_hex(color)
       name = options["name"]
