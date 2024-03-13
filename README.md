@@ -8,16 +8,16 @@
 
 ## Usage
 
-Install Tints 'N Shades (TNS) using [Bundler](https://bundler.io/).
+Install the Tints 'N Shades (TNS) gem.
 
 ```bash
-bundle install tints-n-shades
+gem install tints-n-shades
 ```
 
-Run `tns generate` (or the short variant, `tns g`) with any color you need tints and shades for in hex format.
+Run `tns generate` (or the short variant, `tns g`) with any color to generate tints and shades in hex format.
 
-```bash
- tns g #ff7d00
+```text
+tns g #ff7d00
 --primary-100: #ffe5cc;
 --primary-200: #ffcb99;
 --primary-300: #ffb166;
@@ -31,19 +31,24 @@ Run `tns generate` (or the short variant, `tns g`) with any color you need tints
 
 ### Color Formats
 
-TNS supports outputs in Hex, HSL and RGB formats using the `--color-format` / `-c` argument.
+TNS supports outputs in Hex, HSL, and RGB formats using the `--color-format` / `-c` argument.
 
-```bash
+```text
 tns g #ff7d00 -c hex
 --primary-100: #ffe5cc;
 --primary-200: #ffcb99;
+...
+```
 
- tns g #ff7d00 --color-format hsl
+```text
+tns g #ff7d00 --color-format hsl
 --primary-100: hsl(29 100 90);
 --primary-200: hsl(29 100 80);
 ...
+```
 
- tns g #ff7d00 --color-format rgb
+```text
+tns g #ff7d00 --color-format rgb
 --primary-100: rgb(255 229 204);
 --primary-200: rgb(255 203 153);
 ...
@@ -58,12 +63,16 @@ tns g #ff7d00 -o css
 --primary-100: #ffe5cc;
 --primary-200: #ffcb99;
 ...
+```
 
+```text
 tns g #ff7d00 -o sass
 $primary-100: #ffe5cc;
 $primary-200: #ffcb99;
 ...
+```
 
+```text
 tns g #ff7d00 -o tailwind
 {
   "primary": {
@@ -77,23 +86,23 @@ tns g #ff7d00 -o tailwind
 
 ### Others
 
-To change the name of your color use the `--name` / `-n` argument. For additional configuration options see
+To change the name of your color, use the `--name` / `-n` argument. For additional configuration options, see
 
-```
+```text
 tns help generate
 ```
 
 ## Why another Color generator? 
 
-While there are numerous palette, tint and shade generators out there, none of them quite fit my use case. That is, taking colors from some palette (e.g. [coolors](https://coolors.co/)) and generating complete CSS/SASS variables in various formats. 
+While numerous palette, tint, and shade generators exist, none fit my use case. That is, taking colors from some palette (e.g. [coolors](https://coolors.co/)) and generating complete CSS/SASS variables in various formats. 
 
-There are tools that will only output Hex variables, other support only Tailwind, and so on. There are none that provide that level of customization that I was looking for. 
+Some tools will only output Hex variables, others support only Tailwind, etc. I was looking for more customization and greater flexibility. 
 
-Also: None that work on the command line! TNS is a simple executable that lends itself perfectly for scripting.
+Also, none work on the command line! It's all in the browser, and we just can't have that.
 
 ## Credit
 
-This project was primarily inspired by [maketintsandshades.com](https://maketintsandshades.com/) and [tints.dev](https://www.tints.dev/). The starting point code-wise was the [color gem](https://github.com/halostatue/color). The RGB to HSL conversion algorithm is based off of [this Stackoverflow answer](https://stackoverflow.com/a/39147465)
+This project was primarily inspired by [maketintsandshades.com](https://maketintsandshades.com/) and [tints.dev](https://www.tints.dev/). The starting point code-wise was the [color gem](https://github.com/halostatue/color). The RGB to HSL conversion algorithm is based on [this Stackoverflow answer](https://stackoverflow.com/a/39147465)
 
 ## Contributing
 
