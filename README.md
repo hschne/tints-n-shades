@@ -94,3 +94,17 @@ Also: None that work on the command line! TNS is a simple executable that lends 
 ## Credit
 
 This project was primarily inspired by [maketintsandshades.com](https://maketintsandshades.com/) and [tints.dev](https://www.tints.dev/). The starting point code-wise was the [color gem](https://github.com/halostatue/color). The RGB to HSL conversion algorithm is based off of [this Stackoverflow answer](https://stackoverflow.com/a/39147465)
+
+## Contributing
+
+Thank you for contributing! :heart:
+
+Please use [GitHub issues](https://github.com/hschne/mr-loga-loga/issues) to submit bugs or feature requests.
+
+## License
+
+The gem is available as open-source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the Tints 'N Shades project's codebases, issue trackers, chat rooms, and mailing lists is expected to follow the [code of conduct](https://github.com/hschne/tints-n-shades/blob/master/CODE_OF_CONDUCT.md).
