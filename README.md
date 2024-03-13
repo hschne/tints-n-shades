@@ -2,7 +2,7 @@
 
 <img alt="logo" src="assets/logo.webp" width="300px" height="auto">
 
-### The tints & shades generator for CLI lovers ❤️
+### The tints & shades generator for CLI lovers 🩶
 
 </div>
 
@@ -53,19 +53,25 @@ tns g #ff7d00 -c hex
 
 TNS supports outputting color palettes as CSS variables, SCSS variables, or Tailwind configuration.
 
-```bash
-tns g #ff7d00 -c hex
+```text
+tns g #ff7d00 -o css
 --primary-100=#ffe5cc;
 --primary-200=#ffcb99;
-
- tns g #ff7d00 --color-format hsl
---primary-100=hsl(29 100 90);
---primary-200=hsl(29 100 80);
 ...
 
- tns g #ff7d00 --color-format rgb
---primary-100=rgb(255 229 204);
---primary-200=rgb(255 203 153);
+tns g #ff7d00 -o sass
+$primary-100=#ffe5cc;
+$primary-200=#ffcb99;
+...
+
+tns g #ff7d00 -o tailwind
+{
+  "primary": {
+    "100": "#ffe5cc",
+    "200": "#ffcb99",
+    ...
+  }
+}
 ...
 ```
 

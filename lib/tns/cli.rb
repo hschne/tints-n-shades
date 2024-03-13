@@ -16,8 +16,8 @@ module TNS
                   type: :string,
                   aliases: "-n",
                   desc: "The name of your color"
-    option :format, default: "css",
-                    enum: %w[css sass json],
+    option :output, default: "css",
+                    enum: %w[css sass tailwind],
                     type: :string,
                     aliases: "-o",
                     desc: "The output format"
@@ -37,11 +37,11 @@ module TNS
     def generate(color)
       rgb = Color::RGB.from_hex(color)
       name = options["name"]
-      format = options["format"]
       color_format = options["color-format"]
+      output = options["output"]
       palette = Palette.new(rgb).to(color_format)
-      text = Output::Text.new(name, format)
-      puts text.format(palette)
+      output = Output.from_argument(output, name)
+      puts output.format(palette)
     rescue ArgumentError => e
       # Wrap argument errors into thor errors for nicer reporting to user
       raise Thor::Error, e.message
