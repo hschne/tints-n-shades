@@ -21,6 +21,13 @@ const generate = (color, name, format, output) => {
   return result.toString();
 };
 
+const toggleSpinners = () => {
+  const spinner = document.querySelector("#spinner");
+  const output = document.querySelector("#code");
+  spinner.classList.toggle("hidden");
+  output.classList.toggle("hidden");
+};
+
 const onClick = () => {
   const color = document.querySelector("#color").value;
   const name = document.querySelector("#name").value;
@@ -46,5 +53,11 @@ const onClick = () => {
   );
 };
 
-document.querySelector("#button").addEventListener("click", onClick);
+document.querySelector("#button").addEventListener("click", (_event) => {
+  toggleSpinners();
+  onClick();
+  toggleSpinners();
+});
+
 onClick();
+toggleSpinners();

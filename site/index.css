@@ -1,7 +1,6 @@
 @import "https://unpkg.com/open-props";
 
 /* optional imports that use the props */
-@import "https://unpkg.com/open-props/normalize.min.css";
 @import "https://unpkg.com/open-props/buttons.min.css";
 
 *,
@@ -10,6 +9,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--gray-9);
+  color: var(--gray-0);
 }
 
 .container {
@@ -24,25 +28,144 @@
   padding: var(--size-3) 0;
 }
 
-.output {
-  display: flex;
-  flex-direction: row;
-  gap: var(--size-fluid-2);
-  align-items: stretch;
-  justify-content: space-between;
+.logo {
+  height: var(--size-6);
 }
 
-pre {
-  margin: 0;
+.link {
+  color: var(--gray-0);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--blue-2);
+  }
+}
+
+.icon {
+  height: var(--size-6);
+}
+
+.output {
+  padding: var(--size-fluid-2) 0;
+  position: relative;
+  min-height: 20vh;
+}
+
+.code {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-fluid-2);
+  align-items: stretch;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.code pre {
   box-shadow: var(--shadow-2);
   font-family: var(--font-mono);
   background-color: var(--gray-8);
+  max-inline-size: 100%;
+  border: var(--border-size-1) solid var(--red-1);
   border-radius: var(--radius-2);
   padding: var(--size-fluid-2);
-  text-align: left;
-  white-space: pre-line;
 
   @media (--motionOK) {
     animation: var(--animation-fade-in);
   }
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  inline-size: var(--size-8);
+}
+
+.spinner svg {
+  width: 100%;
+  height: 100%;
+  color: var(--blue-1);
+}
+.spinner_grow {
+  animation: spinner_grow 1.2s infinite;
+}
+
+.spinner_0 {
+  color: var(--red-3);
+}
+
+.spinner_1 {
+  animation-delay: 0.1s;
+  color: var(--green-3);
+}
+.spinner_3 {
+  animation-delay: 0.2s;
+  color: var(--blue-3);
+}
+.spinner_5 {
+  animation-delay: 0.3s;
+  color: var(--orange-3);
+}
+.spinner_7 {
+  animation-delay: 0.4s;
+  color: var(--purple-3);
+}
+.spinner_9 {
+  animation-delay: 0.5s;
+  color: var(--yellow-3);
+}
+.spinner_11 {
+  animation-delay: 0.6s;
+  color: var(--red-3);
+}
+.spinner_10 {
+  animation-delay: 0.7s;
+  color: var(--green-3);
+}
+.spinner_8 {
+  animation-delay: 0.8s;
+  color: var(--blue-3);
+}
+.spinner_6 {
+  animation-delay: 0.9s;
+  color: var(--orange-3);
+}
+.spinner_4 {
+  animation-delay: 1s;
+  color: var(--purple-3);
+}
+.spinner_2 {
+  animation-delay: 1.1s;
+  color: var(--yellow-3);
+}
+.spinner_group {
+  transform-origin: center;
+  animation: spinner_rotate 12s linear infinite;
+}
+@keyframes spinner_grow {
+  0%,
+  50% {
+    animation-timing-function: cubic-bezier(0.27, 0.42, 0.37, 0.99);
+    r: 1px;
+  }
+  25% {
+    animation-timing-function: cubic-bezier(0.53, 0, 0.61, 0.73);
+    r: 2px;
+  }
+}
+@keyframes spinner_rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.hidden {
+  opacity: 0;
 }
