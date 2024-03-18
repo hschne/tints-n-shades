@@ -3,12 +3,20 @@
   <head> </head>
   <body>
     <label for="name">Name</label>
-    <input id="name" type="text" name="name" value="" />
+    <input id="name" type="text" name="name" value="color-primary" />
     <label for="color">Color</label>
     <input id="color" type="color" name="color" value="#ff7d00" />
+    <label for="format">Color format</label>
+    <select name="format" id="format" required selected="hex">
+      <option value="hex">HEX</option>
+      <option value="hsl">HSL</option>
+      <option value="rgb">RGB</option>
+    </select>
     <button id="button">Generate</button>
 
-    <p id="output"></p>
+    <pre id="css"></pre>
+    <pre id="sass"></pre>
+    <pre id="tailwind"></pre>
   </body>
 
   <script type="module" src="script.js"></script>
