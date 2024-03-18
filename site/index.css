@@ -11,6 +11,7 @@
 body {
   background-color: var(--gray-9);
   color: var(--gray-0);
+  font-family: var(--font-sans);
 }
 
 .container {
@@ -79,12 +80,19 @@ body {
   transform: translate(-50%, -50%);
   opacity: 1;
   transition: all 0.3s ease-in-out;
-  inline-size: var(--size-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  justify-content: center;
+  align-items: center;
+
+  font-size: var(--font-size-fluid-0);
+  text-align: center;
 }
 
 .spinner svg {
-  width: 100%;
-  height: 100%;
+  width: var(--size-8);
+  height: var(--size-8);
   color: var(--blue-1);
 }
 .spinner_grow {
