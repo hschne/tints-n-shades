@@ -1,22 +1,36 @@
 <!doctype html>
 <html lang="en">
-  <head> </head>
-  <body>
-    <label for="name">Name</label>
-    <input id="name" type="text" name="name" value="color-primary" />
-    <label for="color">Color</label>
-    <input id="color" type="color" name="color" value="#ff7d00" />
-    <label for="format">Color format</label>
-    <select name="format" id="format" required selected="hex">
-      <option value="hex">HEX</option>
-      <option value="hsl">HSL</option>
-      <option value="rgb">RGB</option>
-    </select>
-    <button id="button">Generate</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
 
-    <pre id="css"></pre>
-    <pre id="sass"></pre>
-    <pre id="tailwind"></pre>
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+  </head>
+  <body>
+    <header class="header container">
+      <div class="logo">Tints 'N Shades</div>
+      <a href="#">GitHub</a>
+    </header>
+    <main class="main container">
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" value="color-primary" />
+      <label for="color">Color</label>
+      <input id="color" type="color" name="color" value="#ff7d00" />
+      <label for="format">Color format</label>
+      <select name="format" id="format" required selected="hex">
+        <option value="hex">HEX</option>
+        <option value="hsl">HSL</option>
+        <option value="rgb">RGB</option>
+      </select>
+      <button id="button">Generate</button>
+      <div class="output">
+        <pre id="css"></pre>
+        <pre id="sass"></pre>
+        <pre id="tailwind"></pre>
+      </div>
+    </main>
+    <footer></footer>
   </body>
 
   <script type="module" src="script.js"></script>

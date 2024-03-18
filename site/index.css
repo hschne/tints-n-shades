@@ -1,0 +1,48 @@
+@import "https://unpkg.com/open-props";
+
+/* optional imports that use the props */
+@import "https://unpkg.com/open-props/normalize.min.css";
+@import "https://unpkg.com/open-props/buttons.min.css";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: var(--size-3) 0;
+}
+
+.output {
+  display: flex;
+  flex-direction: row;
+  gap: var(--size-fluid-2);
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+pre {
+  margin: 0;
+  box-shadow: var(--shadow-2);
+  font-family: var(--font-mono);
+  background-color: var(--gray-8);
+  border-radius: var(--radius-2);
+  padding: var(--size-fluid-2);
+  text-align: left;
+  white-space: pre-line;
+
+  @media (--motionOK) {
+    animation: var(--animation-fade-in);
+  }
+}

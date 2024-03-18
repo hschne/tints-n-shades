@@ -47,3 +47,4 @@ const onClick = () => {
 };
 
 document.querySelector("#button").addEventListener("click", onClick);
+onClick();
