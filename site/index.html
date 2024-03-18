@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tints 'N Shades</title>
-    <link rel="stylesheet" href="./index.css" />
-
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <header class="header container">
@@ -32,8 +31,8 @@
       <label for="color">Color</label>
       <input id="color" type="color" name="color" value="#ff7d00" />
       <label for="format">Color format</label>
-      <select name="format" id="format" required selected="hex">
-        <option value="hex">HEX</option>
+      <select name="format" id="format" required>
+        <option value="hex" selected>HEX</option>
         <option value="hsl">HSL</option>
         <option value="rgb">RGB</option>
       </select>
@@ -124,5 +123,5 @@
     <footer></footer>
   </body>
 
-  <script type="module" src="./index.js"></script>
+  <script type="module" src="index.js"></script>
 </html>
