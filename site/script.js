@@ -1,5 +1,5 @@
 import { DefaultRubyVM } from "https://cdn.jsdelivr.net/npm/@ruby/3.3-wasm-wasi@2.5.0/dist/browser/+esm";
-const response = await fetch("ruby-web.wasm");
+const response = await fetch("./ruby-web.wasm");
 const module = await WebAssembly.compileStreaming(response);
 const { vm } = await DefaultRubyVM(module);
 
