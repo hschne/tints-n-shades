@@ -110,6 +110,14 @@ Thank you for contributing! :heart:
 
 Please use [GitHub issues](https://github.com/hschne/mr-loga-loga/issues) to submit bugs or feature requests.
 
+### Compiling to WASM
+
+TNS runs in the browser. To compile to Wasm using [ruby.wasm](https://github.com/ruby/ruby.wasm) run: 
+
+```
+BUNDLE_GEMFILE=Gemfile-web bundle exec rbwasm build -o site/ruby-web.wasm
+```
+
 ## License
 
 The gem is available as open-source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

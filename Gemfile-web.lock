@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    tints-n-shades (0.1.0)
+      thor (~> 1.3)
+
+GEM
+  specs:
+    js (2.5.0)
+    ruby_wasm (2.5.0-x86_64-linux)
+    thor (1.3.1)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  js (~> 2.5)
+  ruby_wasm (~> 2.5)
+  tints-n-shades!
+
+BUNDLED WITH
+   2.5.5
