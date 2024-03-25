@@ -59,5 +59,5 @@ document.querySelector("#button").addEventListener("click", (_event) => {
   toggleSpinners();
 });
 
-onClick();
-toggleSpinners();
+// onClick();
+// toggleSpinners();
