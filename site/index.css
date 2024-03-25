@@ -14,16 +14,38 @@ body {
   font-family: var(--font-sans);
 }
 
+main {
+  min-height: 90vh;
+}
+
+footer {
+  padding: var(--size-fluid-3) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  p {
+    width: 50%;
+  }
+  p:last-child {
+    text-align: right;
+  }
+}
+
 .container {
   max-width: 50rem;
   margin: 0 auto;
+
+  @media (max-width: 50rem) {
+    padding: 0 var(--size-fluid-2);
+  }
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: var(--size-3) 0;
+  padding-block: var(--size-fluid-3);
 }
 
 .logo {
@@ -41,6 +63,90 @@ body {
 
 .icon {
   height: var(--size-6);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--size-3);
+  padding: var(--size-3) 0;
+
+  label[for="format"] {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 36rem) {
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    label[for="format"] {
+      grid-column: span 1;
+    }
+
+    button {
+      grid-row: 4;
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+input,
+button,
+select {
+  font: inherit;
+  font-size: inherit;
+  color: var(--gray-0);
+  letter-spacing: inherit;
+  border: 2px var(--gray-1) solid;
+  background-color: var(--gray-9);
+  border-radius: var(--radius-2);
+  transition: all 0.2s ease-in-out;
+}
+
+:where(input[type="text"], button, select) {
+  padding-inline: var(--size-2);
+  padding-block: var(--size-2);
+}
+
+input {
+  border-color: var(--blue-2);
+
+  &:hover {
+    border-color: var(--blue-4);
+  }
+}
+
+input[type="color"] {
+  border-color: var(--gray-0);
+}
+
+select {
+  border-color: var(--red-2);
+
+  &:hover {
+    border-color: var(--red-4);
+  }
+}
+
+button {
+  border-color: var(--green-2);
+
+  &:hover {
+    background-color: var(--green-1);
+    color: var(--gray-9);
+    border-color: var(--green-4);
+  }
+}
+
+:where(input[type="color"]) {
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+:where(a[href], button, input:not([type="text"]), label[for], select) {
+  cursor: pointer;
 }
 
 .output {
@@ -173,4 +279,25 @@ body {
 
 .hidden {
   opacity: 0;
+}
+
+a {
+  padding-inline: var(--size-1);
+  margin-inline: calc(var(--size-1) * -1);
+  padding-block: var(--size-1);
+  margin-block: calc(var(--size-1) * -1);
+  color: inherit;
+
+  &:hover {
+    color: var(--gray-2);
+  }
+
+  &:where([href]) {
+    text-decoration-color: var(--indigo-1);
+
+    &:where(:visited) {
+      color: var(--gray-4);
+      text-decoration-color: var(--purple-2);
+    }
+  }
 }

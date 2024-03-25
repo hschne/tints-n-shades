@@ -2,6 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ruby WASM</title>
+  </head>
+  <body></body>
+  <script type="module" src="index.js"></script>
+</html>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tints 'N Shades</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
@@ -11,7 +22,7 @@
     <header class="header container">
       <a href="#"><img class="logo" src="logo-small.webp" alt="" /></a>
       <a class="link" href="https://github.com/hschne/tints-n-shades"
-        ><svg class="icon" viewBox="0 0 128 128">
+        ><svg class="icon" viewBox="0 0 128 128" height="32" width="32">
           <g fill="currentColor">
             <path
               fill-rule="evenodd"
@@ -26,17 +37,21 @@
       </a>
     </header>
     <main class="main container">
-      <label for="name">Name</label>
-      <input id="name" type="text" name="name" value="color-primary" />
-      <label for="color">Color</label>
-      <input id="color" type="color" name="color" value="#ff7d00" />
-      <label for="format">Color format</label>
-      <select name="format" id="format" required>
-        <option value="hex" selected>HEX</option>
-        <option value="hsl">HSL</option>
-        <option value="rgb">RGB</option>
-      </select>
-      <button id="button">Generate</button>
+      <div class="controls">
+        <label for="name">Name</label>
+        <label for="color">Color</label>
+        <label for="format">Format</label>
+
+        <input id="name" type="text" name="name" value="color-primary" />
+        <input id="color" type="color" name="color" value="#ff7d00" />
+        <select name="format" id="format" required>
+          <option value="hex" selected>HEX</option>
+          <option value="hsl">HSL</option>
+          <option value="rgb">RGB</option>
+        </select>
+
+        <button id="button">Generate</button>
+      </div>
 
       <div id="output" class="output">
         <div id="spinner" class="spinner">
@@ -121,7 +136,22 @@
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer class="container">
+      <p>
+        Made with ❤️ by
+        <a href="https://twitter.com/hschnedlitz">Hans Schnedlitz</a> using
+        <a href="https://open-props.style/">OpenProps</a>
+      </p>
+      <p>
+        This site runs on
+        <a
+          href="https://hansschnedlitz.com/2024/03/25/porting-a-ruby-gem-to-the-browser-with-ruby-wasm.html"
+        >
+          Ruby
+        </a>
+        💎
+      </p>
+    </footer>
   </body>
 
   <script type="module" src="index.js"></script>
